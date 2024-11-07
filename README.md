@@ -13,11 +13,11 @@
 ## インストール方法
 初めにGitHubからリポジトリをクローンする
 ```
-$git clone 
+$ git clone git@github.com:7aKRe0/robosys2024.git
 ```
 クローン出来たらリポジトリのディレクトリに移動する
 ```
-$cd robosys2023
+$cd robosys2024
 ```
 # 必要なソフトウェア
 - Python
