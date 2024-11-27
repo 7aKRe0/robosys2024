@@ -1,0 +1,37 @@
+#!/usr/bin/python3
+# SPDX-FileCopyrightText: 2024 Ryosuke Naka<uchuutarou114@gmail.com>
+
+
+
+def BMI_calculate(height_cm,weight_kg):
+    height_m = height_cm / 100
+    BMI = weight_kg / (height_m ** 2)
+
+    if BMI <18.5:
+        ANS = "標準値よりも低く痩せている(低体重)"
+    elif 18.5 <= BMI <25:
+        ANS = "標準値の範囲内(普通体重)"
+    elif 25 <= BMI <30:
+        ANS = "標準値よりも高く肥満(1度)"
+    else:
+        ANS = "標準値よりも高く肥満(2度)以上"
+
+    return BMI,ANS
+
+def main():
+    try:
+        height_cm = float(input("身長(cm)を入力してください: "))
+        weight_kg = float(input("体重(kg)を入力してください: "))
+    except ValueError:
+        print("エラー:数値を正しく入力してください。")
+        return
+
+    BMI,ANS = BMI_calculate(height_cm,weight_kg)
+
+    print(f"身長: {height_cm} cm")
+    print(f"体重: {weight_kg} kg")
+    print(f"BMI: {BMI:.2f} ")
+    print(f"結果: {ANS} ")
+
+main()
+
