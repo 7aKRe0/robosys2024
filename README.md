@@ -1,12 +1,35 @@
 # robosys2024
 ロボットシステム学授業用
 
-# 必要なソフトウェア
+[![test](https://github.com/7aKRe0/robosys2024/actions/workflows/test.yml/badge.svg)](https://github.com/7aKRe0/robosys2024/actions/workflows/test.yml)
+
+## 何をするためのソフトウェアか
+
+## インストール方法
+初めにGitHubからリポジトリをクローンする
+```
+$ git clone git@github.com:7aKRe0/robosys2024.git
+```
+クローン出来たらリポジトリのディレクトリに移動する
+```
+$cd robosys2024
+```
+
+## 使い方
+次のコードを入力して実行する
+## 実行例
+
+## 必要なソフトウェア
 - Python
   - テスト済み:3.7~3.10
 
-# テスト環境
-- Ubuntu 20.04
+## テスト環境
+- Ubuntu 20.04 LTS
+
+## 作成者
+* 中 良介
+* 千葉工業大学未来ロボティクス学科所属
+* uchuutarou114@gmail.com
 
 # 著作権・ライセンス
 - このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
