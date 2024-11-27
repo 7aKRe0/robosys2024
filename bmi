@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2024 Ryosuke Naka<uchuutarou114@gmail.com>
 
 
+import sys
+
 
 def BMI_calculate(height_cm,weight_kg):
     height_m = height_cm / 100
@@ -20,13 +22,28 @@ def BMI_calculate(height_cm,weight_kg):
 
 def main():
     try:
-        height_cm = float(input("身長(cm)を入力してください: "))
-        weight_kg = float(input("体重(kg)を入力してください: "))
-    except ValueError:
-        print("エラー:数値を正しく入力してください。")
-        return
+        height_input = input("身長(cm)を入力してください: ")
+        if not height_input.strip():
+            raise ValueError("空の入力です")
+        height_cm = float(height_input)
 
-    BMI,ANS = BMI_calculate(height_cm,weight_kg)
+        weight_input = input("体重(kg)を入力してください: ")
+        if not weight_input.strip():
+            raise ValueError("空の入力です")
+        weight_kg = float(weight_input)
+
+        if height_cm <= 0 or weight_kg <= 0:
+            raise ValueError("身長や体重は正の数である必要があります")
+    except ValueError as e:
+        print(f"エラー: 数値を正しく入力してください。({e})")
+        sys.exit(1)
+
+    try:
+        BMI, ANS = BMI_calculate(height_cm, weight_kg)
+    except ZeroDivisionError:
+        print("エラー: 身長を正しく入力してください。")
+        sys.exit(1)
+
 
     print(f"身長: {height_cm} cm")
     print(f"体重: {weight_kg} kg")
@@ -34,4 +51,3 @@ def main():
     print(f"結果: {ANS} ")
 
 main()
-
