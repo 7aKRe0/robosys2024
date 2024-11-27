@@ -10,7 +10,7 @@
 ## インストール方法
 初めにGitHubからリポジトリをクローンする
 ```
-$ git clone git@github.com:7aKRe0/robosys2024.git
+$ git clone https://github.com/7aKRe0/robosys2024.git
 ```
 クローン出来たらリポジトリのディレクトリに移動する
 ```
