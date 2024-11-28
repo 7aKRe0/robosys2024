@@ -7,17 +7,18 @@
 ## 何をするためのソフトウェアか
 このソフトウェアは、BMI（Body Mass Index）を計算し、結果に応じた健康状態の評価（低体重、普通体重、肥満など）を表示するツール
 
-## インストール方法
+## 導入方法
 初めにGitHubからリポジトリをクローンする
 ```
 $ git clone https://github.com/7aKRe0/robosys2024.git
 ```
+
+## 使い方
+
 クローン出来たらリポジトリのディレクトリに移動する
 ```
 $cd robosys2024
 ```
-
-## 使い方
 以下のコマンドを実行して、BMI計算を開始する
 ```
 python3 bmi 
@@ -91,4 +92,5 @@ seq 5 | ./plus
 - このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
 - このパッケージのコードは，下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを，本人の許可を得て自身の著作としたものです．
     - [ryuichiueda/my_slides robosys_2024](https://github.com/ryuichiueda/my_slides/tree/master/robosys_2024)
-- © 2024 Ryosuke Naka
+  
+© 2024 Ryosuke Naka
