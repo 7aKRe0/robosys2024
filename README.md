@@ -4,7 +4,7 @@
 [![test](https://github.com/7aKRe0/robosys2024/actions/workflows/test.yml/badge.svg)](https://github.com/7aKRe0/robosys2024/actions/workflows/test.yml)
 
 
-## 何をするためのプログラムか
+## 概要
 このプログラムは、BMI（Body Mass Index）を計算し、結果に応じた健康状態の評価（低体重、普通体重、肥満など）を表示する
 
 ## 導入方法
