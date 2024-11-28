@@ -21,7 +21,7 @@ $cd robosys2024
 ```
 以下のコマンドを実行して、BMI計算を開始する
 ```
-python3 bmi 
+$python3 bmi 
 ```
 入力方法
 身長を「cm」で入力
