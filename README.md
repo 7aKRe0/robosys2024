@@ -77,7 +77,7 @@ seq 5 | ./plus
 ```
 
 ## 必要なソフトウェア
-- Python
+- Python 3.7 以上
 
 ## テスト環境
 - Ubuntu 22.04 LTS
