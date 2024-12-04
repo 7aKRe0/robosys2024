@@ -1,53 +1,47 @@
 #!/usr/bin/python3
 # SPDX-FileCopyrightText: 2024 Ryosuke Naka<uchuutarou114@gmail.com>
+# SPDX-License-Identifier: BSD-3-Clause
 
 
 import sys
 
 
-def BMI_calculate(height_cm,weight_kg):
+def bmi_calculate(height_cm, weight_kg):
     height_m = height_cm / 100
-    BMI = weight_kg / (height_m ** 2)
+    bmi = weight_kg / (height_m ** 2)
 
-    if BMI <18.5:
-        ANS = "標準値よりも低く痩せている(低体重)"
-    elif 18.5 <= BMI <25:
-        ANS = "標準値の範囲内(普通体重)"
-    elif 25 <= BMI <30:
-        ANS = "標準値よりも高く肥満(1度)"
+    if bmi < 18.5:
+        ans = "標準値よりも低く痩せている(低体重)"
+    elif 18.5 <= bmi < 25:
+        ans = "標準値の範囲内(普通体重)"
+    elif 25 <= bmi < 30:
+        ans = "標準値よりも高く肥満(1度)"
     else:
-        ANS = "標準値よりも高く肥満(2度)以上"
+        ans = "標準値よりも高く肥満(2度)以上"
 
-    return BMI,ANS
+    return bmi, ans
+
 
 def main():
     try:
-        height_input = input("身長(cm)を入力してください: ")
-        if not height_input.strip():
-            raise ValueError("空の入力です")
-        height_cm = float(height_input)
+        inputs = sys.stdin.read().strip().split()
+        if len(inputs) != 2:
+            raise ValueError("身長(cm)と体重(kg)の2つの数値を入力してください")
 
-        weight_input = input("体重(kg)を入力してください: ")
-        if not weight_input.strip():
-            raise ValueError("空の入力です")
-        weight_kg = float(weight_input)
+        height_cm = float(inputs[0])
+        weight_kg = float(inputs[1])
 
         if height_cm <= 0 or weight_kg <= 0:
             raise ValueError("身長や体重は正の数である必要があります")
+
     except ValueError as e:
-        print(f"エラー: 数値を正しく入力してください。({e})")
+        print(f"エラー: {e}", file=sys.stderr)
         sys.exit(1)
 
-    try:
-        BMI, ANS = BMI_calculate(height_cm, weight_kg)
-    except ZeroDivisionError:
-        print("エラー: 身長を正しく入力してください。")
-        sys.exit(1)
+    bmi, ans = bmi_calculate(height_cm, weight_kg)
+    print(f"{bmi:.2f} {ans}")
 
 
-    print(f"身長: {height_cm} cm")
-    print(f"体重: {weight_kg} kg")
-    print(f"BMI: {BMI:.2f} ")
-    print(f"結果: {ANS} ")
+if __name__ == "__main__":
+    main()
 
-main()
