@@ -52,7 +52,7 @@ echo -e " " | ./bmi
 ```
 
 ## 必要なソフトウェア
-- Python 3.7 以上
+- Python 3.7
 
 ## テスト環境
 - Ubuntu 22.04 LTS
