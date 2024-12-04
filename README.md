@@ -1,7 +1,7 @@
 # robosys2024
 ロボットシステム学授業用
 
-[![test](https://github.com/7aKRe0/robosys2024/actions/workflows/test.yml/badge.svg)](https://github.com/7aKRe0/robosys2024/actions/workflows/test.yml)
+[![test](https://github.com/7aKRe0/robosys2024/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/7aKRe0/robosys2024/actions/workflows/test.yml)
 
 ## 概要
 このプログラムは、BMI（Body Mass Index）を計算し、結果に応じた健康状態の評価（低体重、普通体重、肥満など）を表示する
