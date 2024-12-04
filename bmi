@@ -1,10 +1,7 @@
 #!/usr/bin/python3
 # SPDX-FileCopyrightText: 2024 Ryosuke Naka<uchuutarou114@gmail.com>
 # SPDX-License-Identifier: BSD-3-Clause
-<<<<<<< HEAD
 
-=======
->>>>>>> b102966cac4f200f106d7e6a70e04b0ee25a82c6
 
 import sys
 
@@ -47,4 +44,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

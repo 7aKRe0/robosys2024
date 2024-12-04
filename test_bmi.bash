@@ -1,35 +1,44 @@
-#!/usr/bin/env bash
 # SPDX-License-Identifier: BSD-3-Clause
 # SPDX-FileCopyrightText: 2024 Ryosuke Naka <uchuutarou114@gmail.com>
 
-# エラー関数
-ng() {
-    echo "エラー: ${1}行目のテストが失敗しました" >&2
+ng () {
+    echo "${1}行目が違うよ"
     res=1
 }
 
 res=0
 
-# 異常系テスト（数値以外の入力）
-out=$(echo -e "abc\n65" | ./bmi)
-[ $? -ne 0 ] || ng "$LINENO"
-echo "${out}" | grep -q "エラー" || ng "$LINENO"
+### bmiコマンドへのテスト ###
 
-out=$(echo -e "170\nxyz" | ./bmi)
-[ $? -ne 0 ] || ng "$LINENO"
-echo "${out}" | grep -q "エラー" || ng "$LINENO"
-
-# 空入力テスト
-out=$(echo -e "\n" | ./bmi)
-[ $? -ne 0 ] || ng "$LINENO"
-echo "${out}" | grep -q "エラー" || ng "$LINENO"
-
-# 正常系テスト
+# 正常系: 身長170cm、体重55kg
 out=$(echo -e "170\n55" | ./bmi)
-[ $? -eq 0 ] || ng "$LINENO"
-echo "${out}" | grep -q "19.03 標準値の範囲内" || ng "$LINENO"
+expected="体重: 55.0 kg BMI: 19.03 結果: 標準値の範囲内(普通体重)"
+[ "${out}" = "${expected}" ] || ng "$LINENO"
 
-# 結果出力
-[ "${res}" = 0 ] && echo "全てのテストが成功しました" || echo "テストに失敗しました"
-exit $res
+# 数値以外の入力（身長に文字列）
+out=$(echo -e "abc\n55" | ./bmi)
+[ "$?" -eq 1 ] || ng "$LINENO"
+echo "${out}" | grep -q "エラー: could not convert string to float" || ng "$LINENO"
 
+# 数値以外の入力（体重に文字列）
+out=$(echo -e "170\nxyz" | ./bmi)
+[ "$?" -eq 1 ] || ng "$LINENO"
+echo "${out}" | grep -q "エラー: could not convert string to float" || ng "$LINENO"
+
+# 空入力
+out=$(echo -e "\n" | ./bmi)
+[ "$?" -eq 1 ] || ng "$LINENO"
+echo "${out}" | grep -q "エラー: 身長\(cm\)と体重\(kg\)の2つの数値を入力してください" || ng "$LINENO"
+
+# 身長が0
+out=$(echo -e "0\n55" | ./bmi)
+[ "$?" -eq 1 ] || ng "$LINENO"
+echo "${out}" | grep -q "エラー: 身長や体重は正の数である必要があります" || ng "$LINENO"
+
+# 体重が0
+out=$(echo -e "170\n0" | ./bmi)
+[ "$?" -eq 1 ] || ng "$LINENO"
+echo "${out}" | grep -q "エラー: 身長や体重は正の数である必要があります" || ng "$LINENO"
+
+[ "$res" -eq 0 ] && echo "全てのテストが成功しました" || echo "テストに失敗しました"
+exit "$res"
